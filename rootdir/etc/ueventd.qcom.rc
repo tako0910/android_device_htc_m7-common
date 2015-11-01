@@ -139,6 +139,16 @@
 # Bluetooth
 /dev/btlock               0600  bluetooth    bluetooth
 
+# snfc device file nodes
+/dev/ttyHS1            0660   nfc   nfc
+/dev/snfc_pon          0660   nfc   nfc
+/dev/snfc_cen          0660   nfc   nfc
+/dev/snfc_rfs          0660   nfc   nfc
+/dev/snfc_intu         0660   nfc   nfc
+/dev/snfc_intu_polling 0660   nfc   nfc
+/dev/snfc_auto_polling 0660   nfc   nfc
+/dev/snfc_hsel         0660   nfc   nfc
+
 # felica device file nodes
 /dev/felica               0666  root	root
 /dev/felica_pon           0666  root    root

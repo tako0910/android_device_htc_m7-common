@@ -193,6 +193,10 @@ on fs
     mkdir /firmware/mdm 0771 system system
     mkdir /firmware/q6 0771 system system
 
+    # For m7wlj (test)
+    mkdir /nfc_record 0700 system system
+    mkdir /carrier 0775 system carrier
+
     mount_all ./fstab.qcom
 
     mkdir /mnt/qcks 0700 root system

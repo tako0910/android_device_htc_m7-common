@@ -44,3 +44,6 @@
 
 # FeliCa
 /dev/felica(.*)			u:object_r:felica_device:s0
+
+# SNFC
+/dev/snfc(.*)			u:object_r:nfc_device:s0
