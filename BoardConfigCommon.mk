@@ -29,7 +29,7 @@
 
 LOCAL_PATH := device/htc/m7-common
 
-TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
+TARGET_SPECIFIC_HEADER_PATH += device/htc/m7-common/include
 
 # Kernel
 BOARD_KERNEL_BASE := 0x80600000
@@ -38,6 +38,7 @@ BOARD_KERNEL_CMDLINE := console=none androidboot.hardware=qcom user_debug=31
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01800000
 TARGET_KERNEL_CONFIG := m7wlj_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/msm8960
+TARGET_KERNEL_HAVE_EXFAT := true
 
 # Audio
 BOARD_USES_FLUENCE_INCALL := true  # use DMIC in call only
@@ -87,13 +88,7 @@ BOARD_PROVIDES_LIBRIL := true
 # SELinux
 -include device/qcom/sepolicy/sepolicy.mk
 
-BOARD_SEPOLICY_DIRS += \
-    device/htc/m7-common/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-    akmd.te \
-    cir_fw_update.te \
-    felica.te
+BOARD_SEPOLICY_DIRS += device/htc/m7-common/sepolicy
 
 # USB
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file

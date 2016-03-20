@@ -30,9 +30,6 @@ PRODUCT_COPY_FILES += \
 # System properties
 -include $(LOCAL_PATH)/system_prop.mk
 
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
-
 # Screen density
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
@@ -69,7 +66,8 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm8960
+    camera.msm8960 \
+    libcamera_shim
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -77,6 +75,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf
+
+# HTC symbols
+PRODUCT_PACKAGES += \
+    libhtc_symbols
 
 # IDC
 PRODUCT_COPY_FILES += \
@@ -105,6 +107,10 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.target.rc \
     ueventd.qcom.rc
+
+# SSL compat
+PRODUCT_PACKAGES += \
+    libboringssl-compat
 
 # Thermal
 PRODUCT_COPY_FILES += \
