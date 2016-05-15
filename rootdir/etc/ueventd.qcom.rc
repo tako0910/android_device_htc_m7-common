@@ -149,5 +149,15 @@
 /dev/felica_int_poll      0400  root    root
 /dev/felica_uid           0222  root    root
 
+# snfc device file nodes
+/dev/ttyHS1            0660   nfc   nfc
+/dev/snfc_pon          0660   nfc   nfc
+/dev/snfc_cen          0660   nfc   nfc
+/dev/snfc_rfs          0660   nfc   nfc
+/dev/snfc_intu         0660   nfc   nfc
+/dev/snfc_intu_polling 0660   nfc   nfc
+/dev/snfc_auto_polling 0660   nfc   nfc
+/dev/snfc_hsel         0660   nfc   nfc
+
 # keystore
 /dev/qseecom              0660  system       drmrpc
