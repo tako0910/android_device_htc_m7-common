@@ -101,6 +101,20 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
+# Sony NFC packages
+PRODUCT_PACKAGES += \
+    NfcSony \
+    Tag \
+    com.android.nfc_extras
+
+ifeq ($(TARGET_BUILD_VARIANT),user)
+    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access.xml
+else
+    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access_debug.xml
+endif
+PRODUCT_COPY_FILES += \
+    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
+
 # PowerHAL
 PRODUCT_PACKAGES += \
     libqc-opt_shim
