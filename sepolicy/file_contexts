@@ -43,4 +43,8 @@
 /system/bin/akmd                u:object_r:akmd_exec:s0
 
 # FeliCa
-/dev/felica(.*)			u:object_r:felica_device:s0
+/dev/felica(.*)			u:object_r:felica_device:sa
+
+# SNFC		
+/dev/ttyHS1			u:object_r:nfc_device:s00
+/dev/snfc(.*)			u:object_r:nfc_device:s00
