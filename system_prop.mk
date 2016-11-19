@@ -2,6 +2,16 @@
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-swap=false
 
+# Audio
+PRODUCT_PROPERTY_OVERRIDES += \
+    audio.offload.disable=1 \
+    persist.audio.fluence.speaker=true \
+    persist.audio.fluence.voicecall=true \
+    persist.audio.fluence.voicerec=false \
+    ro.qc.sdk.audio.fluencetype=fluence \
+    use.dedicated.device.for.voip=true \
+    use.voice.path.for.pcm.voip=true
+
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bt.bdaddr_path=/sys/module/htc_bdaddress/parameters/bdaddress
@@ -32,7 +42,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.baseband.arch=mdm
+    ro.baseband.arch=mdm \
+    ro.telephony.ril_class=HTCQualcommRIL
 
 # Scheduler
 PRODUCT_PROPERTY_OVERRIDES += \

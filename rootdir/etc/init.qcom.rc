@@ -3,12 +3,10 @@ import init.target.rc
 import init.qcom.usb.rc
 
 on early-init
-    mount debugfs /sys/kernel/debug /sys/kernel/debug
     chown system system /sys/kernel/debug/kgsl/proc
 
 on init
-    export LD_PRELOAD /system/lib/libhtc_symbols.so:/system/lib/libboringssl-compat.so
-    export LD_SHIM_LIBS "/system/lib/hw/camera.vendor.msm8960.so|libcamera_shim.so"
+    export LD_SHIM_LIBS "/system/lib/hw/camera.vendor.msm8960.so|libcamera_shim.so:/system/vendor/lib/libqc-opt.so|libqc-opt_shim.so:/system/lib/liblog.so|liblog_shim.so"
 
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
@@ -278,14 +276,17 @@ on boot
     # Create symlink for fb1 as HDMI
     symlink /dev/graphics/fb1 /dev/graphics/hdmi
 
-    # Remove write permissions to video related nodes
-    chmod 0664 /sys/devices/virtual/graphics/fb1/hpd
-    chmod 0664 /sys/devices/virtual/graphics/fb1/video_mode
+    # Set permissions for fb1 related nodes
     chmod 0664 /sys/devices/virtual/graphics/fb1/format_3d
+    chmod 0664 /sys/devices/virtual/graphics/fb1/hpd
+    chmod 0664 /sys/devices/virtual/graphics/fb1/product_description
+    chmod 0664 /sys/devices/virtual/graphics/fb1/vendor_name
 
     # Change owner and group for media server and surface flinger
-    chown system system /sys/devices/virtual/graphics/fb1/format_3d
-    chown system system /sys/devices/virtual/graphics/fb1/hpd
+    chown system graphics /sys/class/graphics/fb1/format_3d
+    chown system graphics /sys/class/graphics/fb1/hpd
+    chown system graphics /sys/class/graphics/fb1/product_description
+    chown system graphics /sys/class/graphics/fb1/vendor_name
 
     chown media system /sys/camera_attrs/videochat
 
@@ -433,20 +434,20 @@ service felica_agent /system/bin/felica_agent
 # Felica - END
 
 #One-seg services
-service jelly /system/bin/jellyservice
-    class late_start
-    user root
-    group drm system audio camera graphics inet net_bt net_bt_admin net_raw sdcard_rw
-
-service mtvmf /system/bin/mtvmfservice
-    class late_start
-    user system
-    group system audio camera graphics inet net_bt net_bt_admin net_raw sdcard_rw
-
-service mtvmfrec /system/bin/mtvmfrecservice
-    class late_start
-    user system
-    group system audio camera graphics inet net_bt net_bt_admin net_raw sdcard_rw
+#service jelly /system/bin/jellyservice
+#    class late_start
+#    user root
+#    group drm system audio camera graphics inet net_bt net_bt_admin net_raw sdcard_rw
+#
+#service mtvmf /system/bin/mtvmfservice
+#    class late_start
+#    user system
+#    group system audio camera graphics inet net_bt net_bt_admin net_raw sdcard_rw
+#
+#service mtvmfrec /system/bin/mtvmfrecservice
+#    class late_start
+#    user system
+#    group system audio camera graphics inet net_bt net_bt_admin net_raw sdcard_rw
 
 # Property triggers begin here
 
