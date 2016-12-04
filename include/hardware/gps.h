@@ -241,6 +241,7 @@ typedef uint16_t AGpsStatusValue;
 /** AGPS data connection failed */
 #define GPS_AGPS_DATA_CONN_FAILED   5
 
+typedef uint16_t AGpsRefLocationType;
 #define AGPS_REF_LOCATION_TYPE_GSM_CELLID   1
 #define AGPS_REF_LOCATION_TYPE_UMTS_CELLID  2
 #define AGPS_REF_LOCATION_TYPE_MAC          3
