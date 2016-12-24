@@ -35,10 +35,13 @@ BOARD_HAVE_HTC_CSDCLIENT := true
 USE_CUSTOM_AUDIO_POLICY := 1
 
 # Bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := $(LOCAL_PATH)/bluetooth/libbt_vndcfg.txt
+BOARD_CUSTOM_BT_CONFIG := $(LOCAL_PATH)/bluetooth/libbt_vndcfg.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
 BOARD_HAVE_BLUETOOTH_BCM := true
+
+# Boot animation
+TARGET_BOOTANIMATION_HALF_RES := true
 
 # Camera
 TARGET_DISPLAY_INSECURE_MM_HEAP := true
@@ -60,7 +63,6 @@ AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
 
 # General compilation flags
 TARGET_SPECIFIC_HEADER_PATH += device/htc/m7-common/include
-USE_CLANG_PLATFORM_BUILD := true
 
 # Graphics
 HAVE_ADRENO_SOURCE := false
@@ -72,12 +74,11 @@ BOARD_KERNEL_CMDLINE := console=none androidboot.hardware=qcom androidboot.selin
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01800000
 TARGET_KERNEL_CONFIG := m7wlj_defconfig
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 TARGET_KERNEL_SOURCE := kernel/htc/msm8960
 
 # Recovery
 BOARD_RECOVERY_BLDRMSG_OFFSET := 2048
-COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
+BOARD_NO_SECURE_DISCARD := true
 TARGET_RECOVERY_DEVICE_DIRS += device/htc/m7-common
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
@@ -87,11 +88,6 @@ TARGET_USERIMAGES_USE_F2FS := true
 # RIL
 BOARD_PROVIDES_LIBRIL := true
 BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
-
-# SELinux
--include device/qcom/sepolicy/sepolicy.mk
-
-BOARD_SEPOLICY_DIRS += device/htc/m7-common/sepolicy
 
 # Wifi
 BOARD_HOSTAPD_DRIVER             := NL80211

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 The Android Open Source Project
+ * Copyright (C) 2016 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,13 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef _BDROID_BUILDCFG_H
-#define _BDROID_BUILDCFG_H
-
-#define BTM_DEF_LOCAL_NAME   "HTC J One"
-#define BTA_DISABLE_DELAY 1000 /* in milliseconds */
-#define I2SPCM_SLAVE_BRCM TRUE
-
-/* Defined if the kernel does not have support for CLOCK_BOOTTIME_ALARM */
-#define KERNEL_MISSING_CLOCK_BOOTTIME_ALARM TRUE
-#endif
+/* MediaBufferGroup::MediaBufferGroup */
+extern "C" int _ZN7android16MediaBufferGroupC1Ej(unsigned int);
+extern "C" int _ZN7android16MediaBufferGroupC1Ev() {
+    return _ZN7android16MediaBufferGroupC1Ej(0);
+}
