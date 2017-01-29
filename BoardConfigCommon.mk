@@ -86,6 +86,11 @@ TARGET_USERIMAGES_USE_F2FS := true
 BOARD_PROVIDES_LIBRIL := true
 BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
 
+# SELinux
+-include device/qcom/sepolicy/sepolicy.mk
+
+BOARD_SEPOLICY_DIRS += device/htc/m7-common/sepolicy
+
 # Wifi
 BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
