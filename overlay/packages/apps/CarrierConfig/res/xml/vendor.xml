@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2009 The Android Open Source Project
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<!-- Copyright (C) 2017 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,6 +14,9 @@
      limitations under the License.
 -->
 
-<resources>
-    <bool name="config_show_volumeRockerWake">true</bool>
-</resources>
+<carrier_config_list>
+    <carrier_config>
+        <boolean name="world_phone_bool" value="true" />
+        <boolean name="show_cdma_choices_bool" value="true" />
+    </carrier_config>
+</carrier_config_list>

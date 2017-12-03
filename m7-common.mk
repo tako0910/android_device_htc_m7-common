@@ -46,8 +46,11 @@ PRODUCT_COPY_FILES += \
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8960 \
-    Snap \
-    libcamera_shim
+    libcamera_shim \
+    Snap
+
+# Charger
+WITH_CM_CHARGER := false
 
 # GPS
 PRODUCT_PACKAGES += \

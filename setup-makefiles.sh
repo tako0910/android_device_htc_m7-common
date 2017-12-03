@@ -16,6 +16,8 @@
 
 set -e
 
+export INITIAL_COPYRIGHT_YEAR=2013
+
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
@@ -36,6 +38,12 @@ setup_vendor "$DEVICE_COMMON" "$VENDOR" "$CM_ROOT" true
 write_headers "m7 m7spr m7vzw"
 
 write_makefiles "$MY_DIR"/common-proprietary-files.txt
+
+if [ -s "$CM_ROOT"/vendor/qcom/binaries/msm8960/graphics/graphics-vendor.mk ]; then
+    printf '\n%s\n' "\$(call inherit-product, vendor/qcom/binaries/msm8960/graphics/graphics-vendor.mk)" >> "$PRODUCTMK"
+else
+    write_makefiles "$MY_DIR"/../../qcom/common/extractors/graphics-msm8960.txt
+fi
 
 write_footers
 
