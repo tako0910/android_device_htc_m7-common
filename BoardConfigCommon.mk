@@ -93,9 +93,6 @@ BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
 
 # BOARD_SEPOLICY_DIRS += device/htc/m7-common/sepolicy
 
-# USB
-TARGET_USES_LEGACY_ADB_INTERFACE := true
-
 # Wifi
 BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
